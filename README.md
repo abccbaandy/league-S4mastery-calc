@@ -2,8 +2,9 @@ League of Legends:  Mastery Calculator
 ======================================
 
 This project was designed to experiment with the new mastery changes that came
-with season 2 and has now been updated for season 3. It features a very fast
-interface with fully functional talent trees that work as you would expect in
+with season 2. After that, is has been updated for season 3.
+Based on this tree, a custom one has been created with some new masteries and features.
+It features a very fast interface with fully functional talent trees that work as you would expect in
 game. Each point you change will automatically alter the URL to provide a unique
 link so that you may share a build with other players. The calculator does not
 rely on any server technology, and thus may be saved and used offline if
