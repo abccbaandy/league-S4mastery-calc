@@ -126,6 +126,7 @@ button:active {
     font-weight: bold;
     position: absolute;
     background-image: url(images/tree-icons.png);
+	background-size: 36px;
 }
 #tree-summaries .offense {
     background-position: 0px 0px;
@@ -226,6 +227,7 @@ button:active {
     position: absolute;
     background: url(images/req-bars.png);
 }
+
 .requirement.unavailable {
     background-position: 0px 0px;
 }

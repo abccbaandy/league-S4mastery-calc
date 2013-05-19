@@ -17,6 +17,16 @@ var totalPoints = 0;
 var buttonClasses = ["unavailable", "available", "full"];
 var rankClasses = ["num-unavailable", "num-available", "num-full"];
 
+function getMyIcon (tree, index, status) {
+	var disabled = status == "unavailable";
+	console.log(treeNames[tree] + ' , ' + (index+1));
+	if (disabled === true) {
+		return 'url(images/icons/' + treeNames[tree] + '/' + (index+1) + '_grey.png)';
+	} else {
+		return 'url(images/icons/' + treeNames[tree] + '/' + (index+1) + '.png)';
+	}
+}
+
 function drawCalculator() {
     for (var tree = 0; tree < 3; tree++)
         for (var index = 0; index < data[tree].length; index++)
@@ -115,9 +125,7 @@ function drawButton(tree, index) {
             .css({
                 left: buttonPos.x+"px",
                 top: buttonPos.y+"px",
-                // Sprite has two columns: 0px is color and -58px is black and white
-                backgroundPosition: (status != "unavailable" ? -2 : -60) + "px " + 
-                                    (spritePos - 2) + "px",
+                "background-image": getMyIcon(tree, index, status),
             })
             .append(
                 $("<div>")
@@ -157,7 +165,7 @@ function drawButton(tree, index) {
                     status = "full";
                 } else {
                     // check if available
-                    if (masteryPointReq(tree, index) <= treePoints(tree) && masteryParentReq(tree, index))
+                    if (masteryPointReq(tree, index) <= treePoints(tree) && masteryParentReq(tree, index) && masteryTopReq(tree, index))
                         status = "available";
                     else
                         status = "unavailable";
@@ -175,8 +183,7 @@ function drawButton(tree, index) {
                         .removeClass(buttonClasses.join(" "))
                         .addClass(status)
                         .css({
-                            backgroundPosition: (status != "unavailable" ? -2 : -60) + "px " + 
-                                                (spritePos - 2) + "px",
+                            "background-image" : getMyIcon(tree, index, status),
                         });
                 }
                 // adjust counter
@@ -325,6 +332,15 @@ function masteryParentReq(tree, index) {
     return true;
 }
 
+// Created by batiste roger
+function masteryTopReq(tree, index) {
+	if (index < 20) {
+		return true;
+	} else {
+		return (state[tree][20] || 0) + (state[tree][21] || 0) == 0;
+	}
+}
+
 function treePoints(tree, tier) {
     var points = 0;
     for (var i in state[tree])
@@ -351,6 +367,10 @@ function isValidState(tree, index, rank, mod) {
         // Check this mastery's parent requirements
         if (!masteryParentReq(tree, index))
             return false;
+		
+		// Criteria added by batiste roger
+		if (!masteryTopReq(tree, index))
+			return false;
     }
 
     // Decrementing
@@ -588,12 +608,12 @@ $(function(){
         $("#panel>#tree-summaries").append(
             $("<div>")
                 .addClass("tree-summary")
-                .addClass(treeNames[tree])
                 .attr("data-idx", tree)
                 .text(0)
                 .css({
                     left: TREE_OFFSET * tree + 126,
                     cursor: "pointer",
+					"background-image": "url(images/" + treeNames[tree] + ".jpg)",
                 })
                 .mouseover(function(){
                     customTooltip($("#tooltip").show(), "Double click to reset tree");
