@@ -10,6 +10,12 @@ link so that you may share a build with other players. The calculator does not
 rely on any server technology, and thus may be saved and used offline if
 desired.
 
+This Fork
+---------
+
+This fork of the project was written by Batiste Roger.
+The new features are : New Mastery ideas (see data.js), the ability to add new Mastery icons (one by one) and the ability to add two mutualy exclusive masteries on the top line of each tree.
+
 Demo
 ----
 
