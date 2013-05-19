@@ -12,7 +12,7 @@ desired.
 Demo
 ----
 
-<http://dpatti.github.com/league-mastery-calc/>
+<http://batisteroger.github.com/league-mastery-calc/>
 
 Contributors
 ------------
