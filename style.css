@@ -2,7 +2,7 @@ body {
     background-color: #000;
 }
 
-#s2masteries {
+#s4masteries {
     background: url(images/content_tile.jpg) repeat-y;
     background-color: #EFE0AA;
     font: 11px Arial, Helvetica, sans-serif;
@@ -126,7 +126,7 @@ button:active {
     font-weight: bold;
     position: absolute;
     background-image: url(images/tree-icons.png);
-	background-size: 36px;
+	//background-size: 36px;
 }
 #tree-summaries .offense {
     background-position: 0px 0px;

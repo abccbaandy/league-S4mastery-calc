@@ -21,7 +21,8 @@ function getMyIcon (tree, index, status) {
 	var disabled = status == "unavailable";
 	console.log(treeNames[tree] + ' , ' + (index+1));
 	if (disabled === true) {
-		return 'url(images/icons/' + treeNames[tree] + '/' + (index+1) + '_grey.png)';
+		//return 'url(images/icons/' + treeNames[tree] + '/' + (index+1) + '_grey.png)';
+		return 'url(images/icons/' + treeNames[tree] + '/' + (index+1) + '.png)';
 	} else {
 		return 'url(images/icons/' + treeNames[tree] + '/' + (index+1) + '.png)';
 	}
@@ -126,6 +127,7 @@ function drawButton(tree, index) {
                 left: buttonPos.x+"px",
                 top: buttonPos.y+"px",
                 "background-image": getMyIcon(tree, index, status),
+				"opacity" : status=="unavailable" ? 0.5:1,
             })
             .append(
                 $("<div>")
@@ -159,6 +161,23 @@ function drawButton(tree, index) {
                         break;
                 }
             })
+			.bind('mousewheel', function(event, delta, deltaX, deltaY) {
+				
+			})
+			.mousewheel(function(event, delta, deltaX, deltaY) {
+				if(deltaY>0){
+					// Left click
+                        if (isValidState(tree, index, rank, +1)) {
+                            setState(tree, index, rank, +1);
+                        }
+				}
+				else{
+					// Right click
+                        if (isValidState(tree, index, rank, -1)) {
+                            setState(tree, index, rank, -1);
+                        }
+				}
+			})
             .data("update", function() {
                 rank = state[tree][index] || 0;
                 if (rank == data[tree][index].ranks) {
@@ -184,6 +203,7 @@ function drawButton(tree, index) {
                         .addClass(status)
                         .css({
                             "background-image" : getMyIcon(tree, index, status),
+							"opacity" : status=="unavailable" ? 0.5:1,
                         });
                 }
                 // adjust counter
@@ -608,12 +628,13 @@ $(function(){
         $("#panel>#tree-summaries").append(
             $("<div>")
                 .addClass("tree-summary")
+				.addClass(treeNames[tree])
                 .attr("data-idx", tree)
                 .text(0)
                 .css({
                     left: TREE_OFFSET * tree + 126,
                     cursor: "pointer",
-					"background-image": "url(images/" + treeNames[tree] + ".jpg)",
+					//"background-image": "url(images/" + treeNames[tree] + ".jpg)",
                 })
                 .mouseover(function(){
                     customTooltip($("#tooltip").show(), "Double click to reset tree");
