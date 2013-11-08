@@ -19,7 +19,7 @@ The new features are : New Mastery ideas (see data.js), the ability to add new M
 Demo
 ----
 
-<http://abccbaandy.github.io/league-S4mastery-calc//>
+<http://abccbaandy.github.io/league-S4mastery-calc/>
 
 Contributors
 ------------
