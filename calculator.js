@@ -347,7 +347,12 @@ function masteryPointReq(tree, index) {
 
 function masteryParentReq(tree, index) {
     var parent = data[tree][index].parent;
-    if (parent && (state[tree][parent] || 0) < data[tree][parent].ranks)
+	var parentFix = parent;
+	//fix parent == 0 bug, dirty method:(
+	if(parent==0) 
+		parentFix++;
+    //if (parent && (state[tree][parent] || 0) < data[tree][parent].ranks)
+	if (parentFix && (state[tree][parent] || 0) < data[tree][parent].ranks)
         return false;
     return true;
 }
