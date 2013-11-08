@@ -25,7 +25,7 @@ Contributors
 ------------
 
 * [@wonderfulheaven](https://twitter.com/wonderfulheaven) - Season 3 data update
-* @abccbaandy - Season 4 data update, support mouse wheel(powered by jquery-mousewheel)
+* @abccbaandy - Season 4 data update, support mouse wheel(powered by jquery-mousewheel) and fix parent=0 bug
 
 License
 -------
