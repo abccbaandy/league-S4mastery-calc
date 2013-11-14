@@ -3,9 +3,9 @@ var data = [
     [
         {
             index: 1,
-            name: "Feast",
+            name: "Double-Edged Sword",
             ranks: 1,
-            desc: "Each time you kill a unit restore 2 health and 1 mana",
+            desc: "Melee: Deal an additional 2% damage and receive 1% additional damage.\nRanged: Deal and recieve an additional 1.5% damage",
             rankInfo: [],
         },
         {
@@ -31,9 +31,9 @@ var data = [
         },
         {
             index: 5,
-            name: "Doubled Edge Sword",
+            name: "Expose Weakness",
             ranks: 1,
-            desc: "Melee: Deal an additional 2% damage and receive 1% additional damage.\nRanged: Deal and recieve an additional 1.5% damage",
+            desc: "Damaging an enemy with a spell increases allied champions' damage to that enemy by 1% for the next 3 seconds",
             rankInfo: [],
         },
         {
@@ -42,7 +42,7 @@ var data = [
             ranks: 3,
             perlevel: 1,
             desc: "+# Attack Damage per level\n(# Attack Damage at champion level 18)",
-            rankInfo: [0.22,0.44,0.66],
+            rankInfo: [0.22,0.39,0.55],
         },
         {
             index: 7,
@@ -50,7 +50,7 @@ var data = [
             ranks: 3,
             perlevel: 1,
             desc: "+# Ability Power per level\n(# Ability Power at champion level 18)",
-            rankInfo: [0.33, 0.66, 0.99],
+            rankInfo: [0.33, 0.61, 0.89],
         },
         {
             index: 9,
@@ -227,7 +227,7 @@ var data = [
             index: 13,
             name: "Perseverance",
             ranks: 3,
-            desc: "+#% of your missing health every 5 seconds",
+            desc: "Regenerates #% missing health every 5 seconds",
             rankInfo: [1,2,3],
         },
         {
@@ -257,7 +257,7 @@ var data = [
             index: 17,
             name: "Second Wind",
             ranks: 1,
-            desc: "Increase all sources of incoming healing by 10% when below 25% health",
+            desc: "Increase self-healing, Health Regen, Lifesteal, and Spellvamp by 10% when below 25% health",
             rankInfo: [],
 			parent:11,
         },
@@ -368,23 +368,23 @@ var data = [
             index: 12,
             name: "Culinary Master",
             ranks: 1,
-            desc: "Your health potions are upgraded into Biscuits that restore an additional 20 health and 10 mana instantly upon consumption",
+            desc: "Health potions are upgraded into Biscuits that restore an additional 20 health and 10 mana instantly upon consumption",
             rankInfo: [],
 			parent:7,
         },
-        {
+		{
             index: 13,
-            name: "Wealth",
+            name: "Scavenger",
             ranks: 1,
-            desc: "+40 Starting Gold",
-            rankInfo: [],
+            desc: "+1 Gold each time an ally kills a nearby lane minion",
+			rankInfo: [],
 			parent:8,
         },
         {
             index: 14,
-            name: "Bandit",
+            name: "Wealth",
             ranks: 1,
-            desc: "Melee: Grants an additional 15 Gold on Champion kill or assist\n Ranged: You gain 3 gold each time you attack an enemy champion.\n This cannot trigger on the same champion more than once every 5 seconds",
+            desc: "+40 Starting Gold",
             rankInfo: [],
         },
         {
@@ -398,15 +398,15 @@ var data = [
             index: 16,
             name: "Inspiration",
             ranks: 2,
-            desc: "+5 experience every 10 seconds while near a higher level allied champion",
-            rankInfo: [],
-        },
+            desc: "+# experience every 10 seconds while near a higher level allied champion",
+            rankInfo: [7.5,15],
+        },        
         {
             index: 18,
-            name: "Scavenger",
+            name: "Bandit",
             ranks: 1,
-            desc: "+1 Gold each time an ally kills a nearby lane minion",
-			rankInfo: [],
+            desc: "Melee: Grants an additional 15 Gold on Champion kill or assist\n Ranged: You gain 3 gold each time you attack an enemy champion.\n This cannot trigger on the same champion more than once every 5 seconds",
+            rankInfo: [],
 			parent:13,
         },
         {
